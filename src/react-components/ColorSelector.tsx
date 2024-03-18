@@ -9,7 +9,7 @@ function ColorSelector() {
   const { activeColor, setSelectedColor, selectedColor } = useColor();
 
   useEffect(() => {
-    setSelectedColor(activeColor);
+    setSelectedColor(activeColor!);
   }, [activeColor, setSelectedColor]);
 
   return (
