@@ -24,20 +24,29 @@
 
 .kumbh-theme {
   --font-main: 'Kumbh Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: -5px;
+  h1{
+
+    font-weight: 700;
+letter-spacing: -5px;
+  }
 
 }
 
 .roboto-theme {
   --font-main: "Roboto Slab", serif;
-  font-weight: 700;
+  h1{
+
+    font-weight: 700;
+  }
 }
 
 .space-theme {
   --font-main: 'Space Mono', monospace;
-  font-weight: 400;
-  letter-spacing: -10px;
+  h1{
+
+    font-weight: 400;
+letter-spacing: -10px;
+  }
 }
 
 

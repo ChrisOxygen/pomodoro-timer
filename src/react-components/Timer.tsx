@@ -79,9 +79,9 @@ function Timer() {
           circleWidth={isMobile ? 267.805 : 366}
         />
         <div className="timer-content">
-          <span
+          <h1
             className={`time ${isDisabled ? "disabled" : ""}`}
-          >{`${getDuration(count / 60)}`}</span>
+          >{`${getDuration(count / 60)}`}</h1>
           <TimerButton
             setRunCount={setRunCount}
             runCount={runCount}
