@@ -1,0 +1,123 @@
+.timer-container {
+    width: 100%;
+    max-width: 410px;
+    height: 410px;
+
+
+
+
+    display: flex;align-items: center;
+justify-content: center;
+
+    border-radius: 410px;
+    background: linear-gradient(315deg, #2E325A 0%, #0E112A 100%);
+    box-shadow: 50px 50px 100px 0px #121530, -50px -50px 100px 0px #272C5A;
+
+    margin-bottom: 63px;
+
+    @media only screen and (max-width: 451px) {
+        max-width: 300px;
+        height: 300px;
+        border-radius: 300px;
+    }
+}
+
+
+.outer {
+    // width: 100%;
+    max-width: 366px;
+    height: 366px;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    border-radius: 366px;
+    background: #161932;
+    position: relative;
+
+    @media only screen and (max-width: 451px) {
+        width: 267.805px;
+        height: 267.805px;
+        border-radius: 267.805px;
+    }
+}
+
+.timer-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+}
+
+.time {
+    color: #D7E0FF;
+    text-align: center;
+    font-size: 100px;
+    font-style: normal;
+    line-height: normal;
+
+    margin-top: 50px;
+
+    @media only screen and (max-width: 451px) {
+        font-size: 80px;
+    }
+}
+
+.time-controller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #D7E0FF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 15px;
+    margin-right: -19px;
+
+    width: auto;
+
+    text-align: center;
+
+    @media only screen and (max-width: 451px) {
+        font-size: 14px;
+        letter-spacing: 13.125px;
+        margin-right: -17.125px;
+
+    }
+
+}
+
+.svg-circle-progress {
+    fill: none;
+    stroke: var(--main-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.restart-timer-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    padding: 7px;
+    border-radius: 50%;
+    border: 1px solid #ffffff2a;
+    background: #d7e0ff23;
+
+    margin-top: 7px;
+
+    color: #ffffff8e;
+
+    @media only screen and (max-width: 451px) {
+        padding: 5px;
+        font-size: 13px;
+    }
+}

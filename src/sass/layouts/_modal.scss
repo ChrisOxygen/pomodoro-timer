@@ -1,0 +1,137 @@
+.modal {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 540px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.modal-box {
+    position: relative;
+    border-radius: 25px;
+    background: #FFF;
+}
+
+
+
+.modal::backdrop {
+    background: rgba(10, 12, 28, 0.50);
+}
+
+.modal__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px 38px 31px 40px;
+    border-bottom: 1px solid #E3E1E1;
+
+    @media only screen and (max-width: 451px) {
+        padding: 24px 24px 24px 24px;
+
+    }
+
+
+
+    h2 {
+        color: #161932;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        @media only screen and (max-width: 451px) {
+            font-size: 20px;
+        }
+    }
+
+    &__close {
+        img {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            opacity: 0.5;
+        }
+    }
+
+}
+
+.modal__content {
+    padding: 28px 38px 59px 40px;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (max-width: 451px) {
+        padding: 24px 24px 40px 24px;
+
+    }
+
+
+}
+
+.time-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @media only screen and (max-width: 451px) {
+        align-items: center;
+    }
+
+    h3 {
+        color: #161932;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 5px;
+
+        @media only screen and (max-width: 451px) {
+            font-size: 11px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 21px;
+
+        @media only screen and (max-width: 451px) {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}
+
+.apply-btn {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    width: 140px;
+    height: 53px;
+    flex-shrink: 0;
+
+    border-radius: 26.5px;
+    background: var(--main-color);
+    transform: translateY(-50%);
+
+    &:hover {
+        filter: grayscale(0.2) brightness(1.2);
+    }
+
+}

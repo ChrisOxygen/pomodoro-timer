@@ -1,0 +1,84 @@
+.font-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 0;
+    margin: 16px 0;
+
+    border-top: 1px solid #E3E1E1;
+    border-bottom: 1px solid #E3E1E1;
+
+    @media only screen and (max-width: 451px) {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    h3 {
+        color: #161932;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 5px;
+
+        @media only screen and (max-width: 451px) {
+            font-size: 11px;
+
+        }
+    }
+
+}
+
+.font-selector {
+    display: flex;
+    gap: 16px;
+
+
+}
+
+.font-btn {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+
+    background: #EFF1FA;
+    border-radius: 50%;
+
+    color: #1E213F;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    &:hover {
+        outline: 1px solid #EFF1FA;
+
+        outline-offset: 4px;
+    }
+
+    &--active {
+        background: #161932;
+        color: #FFF;
+    }
+
+    &--kumbh {
+        font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    &--roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+
+    }
+
+    &--space {
+        font-family: 'Space Mono', monospace;
+    }
+}

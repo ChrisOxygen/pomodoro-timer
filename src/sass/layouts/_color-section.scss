@@ -1,0 +1,52 @@
+.color-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 451px) {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    h3 {
+        color: #161932;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 5px;
+
+        @media only screen and (max-width: 451px) {
+            font-size: 11px;
+
+        }
+    }
+}
+
+.color-selector {
+    display: flex;
+    gap: 16px;
+}
+
+.color-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+
+
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+
+    &:hover {
+        filter: grayscale(0.2) brightness(1.2);
+    }
+
+    &--active {
+        span {
+            font-size: 20px;
+        }
+    }
+}
