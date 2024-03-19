@@ -15,7 +15,6 @@ type TimerButtonProps = {
 type RestartButtonProps = {
   count: number;
   time: number;
-  runCount: boolean;
   onRestart: (value: number) => void;
   setRunCount: (value: boolean) => void;
 };
@@ -91,7 +90,6 @@ function Timer() {
             count={count}
             time={time}
             onRestart={setCount}
-            runCount={runCount}
             setRunCount={setRunCount}
           />
         </div>
