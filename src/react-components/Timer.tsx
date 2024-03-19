@@ -124,7 +124,6 @@ function RestartTimer({
   count,
   time,
   onRestart,
-  runCount,
   setRunCount,
 }: RestartButtonProps) {
   const isDisabled = count === time * 60;
@@ -135,9 +134,7 @@ function RestartTimer({
   }
   return (
     <button
-      className={`restart-timer-btn  ${
-        !runCount || isDisabled ? "disabled" : ""
-      }`}
+      className={`restart-timer-btn  ${isDisabled ? "disabled" : ""}`}
       disabled={isDisabled}
       onClick={() => handleClick()}
     >

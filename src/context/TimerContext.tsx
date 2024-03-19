@@ -70,7 +70,7 @@ const initialState: TimerStateType = {
   activeTimer: "Pomodoro",
   timerInputs: [
     { timerName: "pomodoro", time: 23, min: 5, max: 60 },
-    { timerName: "short-break", time: 5, min: 5, max: 60 },
+    { timerName: "short-break", time: 1, min: 1, max: 60 },
     { timerName: "long-break", time: 15, min: 5, max: 60 },
   ],
   isSubmitted: false,
