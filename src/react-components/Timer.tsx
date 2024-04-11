@@ -6,6 +6,8 @@ import { getDuration } from "../utils/Helpers";
 import { useTimer } from "../context/TimerContext";
 import { useMediaQuery } from "react-responsive";
 
+const audio = new Audio("./assets/alarm.mp3");
+
 type TimerButtonProps = {
   setRunCount: (value: boolean) => void;
   runCount: boolean;
@@ -17,6 +19,7 @@ type RestartButtonProps = {
   time: number;
   onRestart: (value: number) => void;
   setRunCount: (value: boolean) => void;
+  setAlarm: (value: boolean) => void;
 };
 
 function Timer() {
@@ -24,7 +27,7 @@ function Timer() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [runCount, setRunCount] = useState(false);
 
-  const { activeTimer, timerInputs } = useTimer();
+  const { activeTimer, timerInputs, alarmOn, setAlarm } = useTimer();
   const inputId = activeTimer.toLowerCase().split(" ").join("-") as
     | "pomodoro"
     | "short-break"
@@ -64,6 +67,22 @@ function Timer() {
     }
   }, [count, runCount, isDisabled, activeTimer]);
 
+  useEffect(() => {
+    if (count === 0 && runCount) {
+      console.log("Alarm");
+      setAlarm(true);
+    }
+  }, [count, setAlarm, runCount]);
+
+  useEffect(() => {
+    if (alarmOn) {
+      audio.loop = true;
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }, [alarmOn]);
+
   const percentage = (count / (time * 60)) * 100;
 
   const isMobile = useMediaQuery({
@@ -91,6 +110,7 @@ function Timer() {
             time={time}
             onRestart={setCount}
             setRunCount={setRunCount}
+            setAlarm={setAlarm}
           />
         </div>
       </div>
@@ -123,12 +143,14 @@ function RestartTimer({
   time,
   onRestart,
   setRunCount,
+  setAlarm,
 }: RestartButtonProps) {
   const isDisabled = count === time * 60;
 
   function handleClick() {
     onRestart(time * 60);
     setRunCount(false);
+    setAlarm(false);
   }
   return (
     <button

@@ -23,6 +23,7 @@ type TimerStateType = {
   timerInputs: TimerOBJType[];
   isSubmitted: boolean;
   timerInputErrors: timerInputErrorsType[];
+  alarmOn: boolean;
 };
 
 type TimerContextValue = TimerStateType & {
@@ -31,6 +32,7 @@ type TimerContextValue = TimerStateType & {
   submitTimerForm: () => void;
   resetTimerForm: () => void;
   setError: (errorObj: timerInputErrorsType) => void;
+  setAlarm: (value: boolean) => void;
 };
 
 type TimerProviderProps = {
@@ -58,19 +60,25 @@ type setErrorAction = {
   payload: timerInputErrorsType;
 };
 
+type setAlarmAction = {
+  type: "SET_ALARM";
+  payload: boolean;
+};
+
 type Action =
   | setActiveTimerAction
   | updateTimerAction
   | submitTimerFormAction
   | resetTimerFormAction
-  | setErrorAction;
+  | setErrorAction
+  | setAlarmAction;
 
 const initialState: TimerStateType = {
   timers: ["Pomodoro", "Short Break", "Long Break"],
   activeTimer: "Pomodoro",
   timerInputs: [
     { timerName: "pomodoro", time: 23, min: 5, max: 60 },
-    { timerName: "short-break", time: 5, min: 2, max: 60 },
+    { timerName: "short-break", time: 1, min: 1, max: 60 },
     { timerName: "long-break", time: 15, min: 5, max: 60 },
   ],
   isSubmitted: false,
@@ -79,6 +87,8 @@ const initialState: TimerStateType = {
     { timerName: "short-break", hasError: false, errorMsg: "" },
     { timerName: "long-break", hasError: false, errorMsg: "" },
   ],
+
+  alarmOn: false,
 };
 
 const TimerContext = createContext<TimerContextValue | null>(null);
@@ -122,6 +132,9 @@ function timerReducer(state: TimerStateType, action: Action): TimerStateType {
     case "RESET_TIMER_FORM":
       return { ...state, isSubmitted: false };
 
+    case "SET_ALARM":
+      return { ...state, alarmOn: action.payload };
+
     default:
       return state;
   }
@@ -129,8 +142,14 @@ function timerReducer(state: TimerStateType, action: Action): TimerStateType {
 
 function TimerProvider({ children }: TimerProviderProps) {
   const [timerState, dispatch] = useReducer(timerReducer, initialState);
-  const { activeTimer, timers, timerInputs, isSubmitted, timerInputErrors } =
-    timerState;
+  const {
+    activeTimer,
+    timers,
+    timerInputs,
+    isSubmitted,
+    timerInputErrors,
+    alarmOn,
+  } = timerState;
 
   const setActiveTimer = (timer: string) => {
     dispatch({ type: "SET_ACTIVE_TIMER", payload: timer });
@@ -150,6 +169,10 @@ function TimerProvider({ children }: TimerProviderProps) {
     dispatch({ type: "SET_ERROR", payload: errorObj });
   };
 
+  const setAlarm = (value: boolean) => {
+    dispatch({ type: "SET_ALARM", payload: value });
+  };
+
   const ctxValue: TimerContextValue = {
     activeTimer,
     setActiveTimer,
@@ -161,6 +184,8 @@ function TimerProvider({ children }: TimerProviderProps) {
     resetTimerForm,
     timerInputErrors,
     setError,
+    alarmOn,
+    setAlarm,
   };
 
   return (
