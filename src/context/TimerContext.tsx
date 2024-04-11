@@ -78,7 +78,7 @@ const initialState: TimerStateType = {
   activeTimer: "Pomodoro",
   timerInputs: [
     { timerName: "pomodoro", time: 23, min: 5, max: 60 },
-    { timerName: "short-break", time: 1, min: 1, max: 60 },
+    { timerName: "short-break", time: 4, min: 2, max: 60 },
     { timerName: "long-break", time: 15, min: 5, max: 60 },
   ],
   isSubmitted: false,
@@ -153,6 +153,7 @@ function TimerProvider({ children }: TimerProviderProps) {
 
   const setActiveTimer = (timer: string) => {
     dispatch({ type: "SET_ACTIVE_TIMER", payload: timer });
+    dispatch({ type: "SET_ALARM", payload: false });
   };
 
   const updateTimer = (timer: UserTimerOBJType) => {

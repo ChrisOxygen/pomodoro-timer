@@ -5,6 +5,8 @@ import { LuRotateCcw } from "react-icons/lu";
 import { getDuration } from "../utils/Helpers";
 import { useTimer } from "../context/TimerContext";
 import { useMediaQuery } from "react-responsive";
+import AlarmBell from "./AlarmBell";
+import { AnimatePresence } from "framer-motion";
 
 const audio = new Audio("./assets/alarm.mp3");
 
@@ -69,7 +71,6 @@ function Timer() {
 
   useEffect(() => {
     if (count === 0 && runCount) {
-      console.log("Alarm");
       setAlarm(true);
     }
   }, [count, setAlarm, runCount]);
@@ -114,6 +115,9 @@ function Timer() {
           />
         </div>
       </div>
+      <AnimatePresence>
+        {alarmOn && <AlarmBell setAlarm={setAlarm} />}
+      </AnimatePresence>
     </div>
   );
 }
