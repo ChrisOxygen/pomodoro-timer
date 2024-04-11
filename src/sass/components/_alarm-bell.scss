@@ -12,15 +12,35 @@
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: 451px) {
+        width: 90px;
+        height: 90px;
+        border-radius: 9px;
+
+    }
+
+
 }
 
 .bell-icon {
     font-size: 40px;
     color: #D7E0FF;
 
+    @media only screen and (max-width: 451px) {
+        font-size: 33px;
+
+
+    }
+
 }
 
 .close-icon {
     font-size: 25px;
     color: var(--main-color);
+
+    @media only screen and (max-width: 451px) {
+        font-size: 20px;
+
+
+    }
 }
