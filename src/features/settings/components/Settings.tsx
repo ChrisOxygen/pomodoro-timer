@@ -34,7 +34,10 @@ function Settings() {
               <h2 className="text-dark-2 text-[28px] font-bold max-[451px]:text-xl">
                 Settings
               </h2>
-              <button className="opacity-50 hover:opacity-100" onClick={closeModal}>
+              <button
+                className="opacity-50 hover:opacity-100"
+                onClick={closeModal}
+              >
                 <img
                   src="./assets/icon-close.svg"
                   className="w-[14px] h-[14px] shrink-0"
