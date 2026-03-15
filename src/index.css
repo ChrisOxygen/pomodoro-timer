@@ -83,23 +83,23 @@ body {
   background-color: #1e213f;
 }
 
-/* ── Form elements inherit font ── */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
+/* ── Base resets inside @layer so Tailwind utilities can override them ── */
+@layer base {
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
 
-/* ── Disabled state ── */
-*:disabled {
-  cursor: not-allowed;
-}
+  *:disabled {
+    cursor: not-allowed;
+  }
 
-/* ── SVG icon buttons need zero line-height ── */
-button:has(svg) {
-  line-height: 0;
+  button:has(svg) {
+    line-height: 0;
+  }
 }
 
 /* ── Remove number input spinners ── */

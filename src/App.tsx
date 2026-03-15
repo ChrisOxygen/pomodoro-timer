@@ -17,6 +17,7 @@ function App() {
   return (
     <motion.div
       className="flex flex-col items-center w-screen h-screen justify-center safe-insets"
+      initial={{ backgroundColor: "#1E213F" }}
       animate={{ backgroundColor: MODE_BG[activeTimer] ?? "#1E213F" }}
       transition={shouldReduce ? { duration: 0 } : { duration: 0.6, ease: "easeInOut" }}
     >
