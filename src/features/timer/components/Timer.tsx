@@ -85,7 +85,7 @@ function TimerButton({ setRunCount, runCount, isDisabled }: TimerButtonProps) {
 
   return (
     <button
-      className={`flex items-center justify-center relative text-faded-blue text-base font-bold tracking-[15px] -mr-[19px] text-center max-[451px]:text-sm max-[451px]:tracking-[13.125px] max-[451px]:-mr-[17.125px] ${isDisabled ? "opacity-30" : ""}`}
+      className={`flex items-center justify-center relative text-white text-base font-bold tracking-[15px] -mr-[19px] text-center max-[451px]:text-sm max-[451px]:tracking-[13.125px] max-[451px]:-mr-[17.125px] ${isDisabled ? "opacity-30" : ""}`}
       onClick={() => setRunCount(!runCount)}
       disabled={isDisabled}
     >
