@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-dark-1: #1e213f;
+  --color-dark-2: #161932;
+  --color-faded-blue: #d7e0ff;
+  --color-off-white: #eff1fa;
+  --color-accent-red: #f87070;
+  --color-accent-cyan: #70f3f8;
+  --color-accent-purple: #d881f8;
+
+  /* ── Fonts ── */
+  --font-kumbh: "Kumbh Sans", sans-serif;
+  --font-roboto: "Roboto Slab", serif;
+  --font-space: "Space Mono", monospace;
+
+  /* ── Border Radius ── */
+  --radius-pill: 26.5px;
+}
+
+/* ── Runtime CSS custom properties ── */
+:root {
+  --main-color: #f87070;
+  --font-main: "Kumbh Sans", sans-serif;
+}
+
+/* ── Font theme classes (set on <html> via FontContext) ── */
+.kumbh-theme {
+  --font-main: "Kumbh Sans", sans-serif;
+}
+.kumbh-theme h1 {
+  font-weight: 700;
+  letter-spacing: -5px;
+}
+
+.roboto-theme {
+  --font-main: "Roboto Slab", serif;
+}
+.roboto-theme h1 {
+  font-weight: 700;
+}
+
+.space-theme {
+  --font-main: "Space Mono", monospace;
+}
+.space-theme h1 {
+  font-weight: 400;
+  letter-spacing: -10px;
+}
+
+/* ── Body font uses the dynamic CSS variable ── */
+body {
+  font-family: var(--font-main);
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Form elements inherit font ── */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ── Disabled state ── */
+*:disabled {
+  cursor: not-allowed;
+}
+
+/* ── SVG icon buttons need zero line-height ── */
+button:has(svg) {
+  line-height: 0;
+}
+
+/* ── Remove number input spinners ── */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ── Modal backdrop ── */
+.modal-dialog::backdrop {
+  background: rgba(10, 12, 28, 0.5);
+}
