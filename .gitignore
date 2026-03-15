@@ -34,3 +34,6 @@ dist-ssr
 
 # Crash dumps
 *.stackdump
+
+# Personal learning notes
+LEARNING.md
