@@ -8,7 +8,9 @@ A focused, accessible Pomodoro timer built as a progressive web app. Helps you w
 
 ## Screenshots
 
-> _Add screenshots here_
+| Pomodoro | Short Break | Settings |
+|---|---|---|
+| ![Pomodoro mode](docs/screenshots/timer-pomodoro.png) | ![Short Break mode](docs/screenshots/timer-short-break.png) | ![Settings modal](docs/screenshots/settings.png) |
 
 ---
 
