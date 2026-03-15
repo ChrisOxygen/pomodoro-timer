@@ -93,6 +93,10 @@ body {
     color: inherit;
   }
 
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
   *:disabled {
     cursor: not-allowed;
   }
