@@ -15,8 +15,8 @@ function Switch() {
     activeTimer === "Pomodoro"
       ? "0%"
       : activeTimer === "Short Break"
-      ? "100%"
-      : "197%";
+        ? "100%"
+        : "197%";
 
   return (
     <div
@@ -49,7 +49,11 @@ function Switch() {
 
 export default Switch;
 
-function SwitchTab({ timerTitle, setActiveTimer, activeTimer }: SwitchTabProps) {
+function SwitchTab({
+  timerTitle,
+  setActiveTimer,
+  activeTimer,
+}: SwitchTabProps) {
   const id = timerTitle.toLowerCase().split(" ").join("-");
   const isActive = timerTitle === activeTimer;
 
