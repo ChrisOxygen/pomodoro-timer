@@ -19,8 +19,9 @@ function Settings() {
   return (
     <>
       <button
-        className="text-[28px] text-faded-blue opacity-40 hover:opacity-100"
+        className="mt-11.25 flex items-center justify-center w-14 h-14 rounded-full bg-dark-2 text-faded-blue text-[26px] opacity-60 hover:opacity-100 hover:rotate-45 transition-all duration-300"
         onClick={() => openModal()}
+        aria-label="Open settings"
       >
         <IoSettingsSharp />
       </button>
