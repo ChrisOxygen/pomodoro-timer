@@ -12,14 +12,15 @@ function SessionCounter() {
         const filled = i < sessionCount;
         return (
           <motion.span
-            key={i}
+            key={filled ? `dot-${i}-filled` : `dot-${i}-empty`}
             className="w-[10px] h-[10px] rounded-full border-2"
             style={{
               borderColor: "var(--main-color)",
               backgroundColor: filled ? "var(--main-color)" : "transparent",
             }}
-            animate={{ scale: filled ? [1, 1.35, 1] : 1 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            initial={{ scale: filled ? 0.5 : 1 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 500, damping: 22 }}
           />
         );
       })}
