@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 import CircleProgressBar from "./CircleProgressBar";
 import AlarmBell from "./AlarmBell";
+import SessionCounter from "./SessionCounter";
 import { useCountdown } from "../hooks/useCountdown";
 import { useTimer } from "../context/TimerContext";
 import { getDuration } from "../../../lib/helpers";
@@ -42,8 +43,9 @@ function Timer() {
   }
 
   return (
+    <>
     <div
-      className={`w-[410px] h-[410px] shrink-0 flex items-center justify-center rounded-full bg-[linear-gradient(315deg,#2E325A_0%,#0E112A_100%)] shadow-[50px_50px_100px_0px_#121530,-50px_-50px_100px_0px_#272C5A] mb-[63px] max-[451px]:max-w-[300px] max-[451px]:h-[300px] ${!isLoaded ? "opacity-30" : ""}`}
+      className={`w-[410px] h-[410px] shrink-0 flex items-center justify-center rounded-full bg-[linear-gradient(315deg,#2E325A_0%,#0E112A_100%)] shadow-[50px_50px_100px_0px_#121530,-50px_-50px_100px_0px_#272C5A] mb-6 max-[451px]:max-w-75 max-[451px]:h-75 ${!isLoaded ? "opacity-30" : ""}`}
     >
       <div className="max-w-[366px] h-[366px] flex items-center justify-start rounded-full bg-dark-2 relative max-[451px]:w-[267.805px] max-[451px]:h-[267.805px]">
         <CircleProgressBar
@@ -71,6 +73,8 @@ function Timer() {
         {alarmOn && <AlarmBell setAlarm={setAlarm} />}
       </AnimatePresence>
     </div>
+    <SessionCounter />
+    </>
   );
 }
 

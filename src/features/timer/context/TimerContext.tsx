@@ -13,6 +13,7 @@ type TimerStateType = {
   isSubmitted: boolean;
   timerInputErrors: TimerInputErrorType[];
   alarmOn: boolean;
+  sessionCount: number;
 };
 
 type TimerContextValue = TimerStateType & {
@@ -22,6 +23,8 @@ type TimerContextValue = TimerStateType & {
   resetTimerForm: () => void;
   setError: (errorObj: TimerInputErrorType) => void;
   setAlarm: (value: boolean) => void;
+  incrementSession: () => void;
+  resetSession: () => void;
 };
 
 type TimerProviderProps = {
@@ -34,6 +37,8 @@ type SubmitTimerFormAction = { type: "SUBMIT_TIMER_FORM" };
 type ResetTimerFormAction = { type: "RESET_TIMER_FORM" };
 type SetErrorAction = { type: "SET_ERROR"; payload: TimerInputErrorType };
 type SetAlarmAction = { type: "SET_ALARM"; payload: boolean };
+type IncrementSessionAction = { type: "INCREMENT_SESSION" };
+type ResetSessionAction = { type: "RESET_SESSION" };
 
 type Action =
   | SetActiveTimerAction
@@ -41,7 +46,9 @@ type Action =
   | SubmitTimerFormAction
   | ResetTimerFormAction
   | SetErrorAction
-  | SetAlarmAction;
+  | SetAlarmAction
+  | IncrementSessionAction
+  | ResetSessionAction;
 
 const initialState: TimerStateType = {
   timers: ["Pomodoro", "Short Break", "Long Break"],
@@ -58,6 +65,7 @@ const initialState: TimerStateType = {
     { timerName: "long-break", hasError: false, errorMsg: "" },
   ],
   alarmOn: false,
+  sessionCount: Number(localStorage.getItem("sessionCount") ?? 0),
 };
 
 const TimerContext = createContext<TimerContextValue | null>(null);
@@ -90,6 +98,14 @@ function timerReducer(state: TimerStateType, action: Action): TimerStateType {
       return { ...state, isSubmitted: false };
     case "SET_ALARM":
       return { ...state, alarmOn: action.payload };
+    case "INCREMENT_SESSION": {
+      const next = state.sessionCount >= 4 ? 4 : state.sessionCount + 1;
+      localStorage.setItem("sessionCount", String(next));
+      return { ...state, sessionCount: next };
+    }
+    case "RESET_SESSION":
+      localStorage.setItem("sessionCount", "0");
+      return { ...state, sessionCount: 0 };
     default:
       return state;
   }
@@ -104,6 +120,7 @@ function TimerProvider({ children }: TimerProviderProps) {
     isSubmitted,
     timerInputErrors,
     alarmOn,
+    sessionCount,
   } = timerState;
 
   const setActiveTimer = (timer: string) => {
@@ -118,6 +135,8 @@ function TimerProvider({ children }: TimerProviderProps) {
     dispatch({ type: "SET_ERROR", payload: errorObj });
   const setAlarm = (value: boolean) =>
     dispatch({ type: "SET_ALARM", payload: value });
+  const incrementSession = () => dispatch({ type: "INCREMENT_SESSION" });
+  const resetSession = () => dispatch({ type: "RESET_SESSION" });
 
   const ctxValue: TimerContextValue = {
     activeTimer,
@@ -132,6 +151,9 @@ function TimerProvider({ children }: TimerProviderProps) {
     setError,
     alarmOn,
     setAlarm,
+    sessionCount,
+    incrementSession,
+    resetSession,
   };
 
   return (

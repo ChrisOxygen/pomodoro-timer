@@ -8,7 +8,8 @@ export function useCountdown(time: number) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [runCount, setRunCount] = useState(false);
 
-  const { alarmOn, setAlarm } = useTimer();
+  const { alarmOn, setAlarm, activeTimer, incrementSession, resetSession } =
+    useTimer();
 
   const isDisabled = count <= 0;
 
@@ -36,12 +37,17 @@ export function useCountdown(time: number) {
     }
   }, [count, runCount, isDisabled]);
 
-  // Trigger alarm when countdown reaches 0
+  // Trigger alarm and session logic when countdown reaches 0
   useEffect(() => {
     if (count === 0 && runCount) {
       setAlarm(true);
+      if (activeTimer === "Pomodoro") {
+        incrementSession();
+      } else if (activeTimer === "Long Break") {
+        resetSession();
+      }
     }
-  }, [count, runCount, setAlarm]);
+  }, [count, runCount, setAlarm, activeTimer, incrementSession, resetSession]);
 
   // Control audio playback
   useEffect(() => {

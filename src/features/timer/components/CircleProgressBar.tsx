@@ -30,6 +30,7 @@ function CircleProgressBar({ percentage, circleWidth }: CircleProgressBarProps) 
           strokeLinejoin: "round",
           strokeDasharray: dashArray,
           strokeDashoffset: dashArray - (dashArray * percentage) / 100,
+          transition: "stroke-dashoffset 1s linear",
         }}
       />
     </svg>
