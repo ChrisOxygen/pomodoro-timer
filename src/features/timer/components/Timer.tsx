@@ -13,6 +13,7 @@ type TimerButtonProps = {
   setRunCount: (value: boolean) => void;
   runCount: boolean;
   isDisabled: boolean;
+  activeTimer: string;
 };
 
 type RestartButtonProps = {
@@ -45,6 +46,9 @@ function Timer() {
   return (
     <>
     <div
+      id="timer-region"
+      role="region"
+      aria-label={`${activeTimer} timer`}
       className={`w-[410px] h-[410px] shrink-0 flex items-center justify-center rounded-full bg-[linear-gradient(315deg,#2E325A_0%,#0E112A_100%)] shadow-[50px_50px_100px_0px_#121530,-50px_-50px_100px_0px_#272C5A] mb-4 max-[451px]:max-w-75 max-[451px]:h-75 ${!isLoaded ? "opacity-30" : ""}`}
     >
       <div className="max-w-[366px] h-[366px] flex items-center justify-start rounded-full bg-dark-2 relative max-[451px]:w-[267.805px] max-[451px]:h-[267.805px]">
@@ -62,6 +66,7 @@ function Timer() {
             setRunCount={setRunCount}
             runCount={runCount}
             isDisabled={isDisabled}
+            activeTimer={activeTimer}
           />
           <RestartTimer
             isDisabled={count === time * 60}
@@ -80,11 +85,13 @@ function Timer() {
 
 export default Timer;
 
-function TimerButton({ setRunCount, runCount, isDisabled }: TimerButtonProps) {
+function TimerButton({ setRunCount, runCount, isDisabled, activeTimer }: TimerButtonProps) {
   const btnTxt = runCount ? "PAUSE" : "START";
 
   return (
     <button
+      aria-label={`${runCount ? "Pause" : "Start"} ${activeTimer} timer`}
+      aria-pressed={runCount}
       className={`flex items-center justify-center relative text-white text-base font-bold tracking-[15px] -mr-[19px] text-center max-[451px]:text-sm max-[451px]:tracking-[13.125px] max-[451px]:-mr-[17.125px] ${isDisabled ? "opacity-30" : ""}`}
       onClick={() => setRunCount(!runCount)}
       disabled={isDisabled}
@@ -97,6 +104,7 @@ function TimerButton({ setRunCount, runCount, isDisabled }: TimerButtonProps) {
 function RestartTimer({ isDisabled, onRestart }: RestartButtonProps) {
   return (
     <button
+      aria-label="Reset timer"
       className={`flex flex-col items-center justify-center p-[7px] rounded-full border border-[#ffffff2a] bg-[#d7e0ff23] mt-[7px] text-[#ffffff8e] max-[451px]:p-[5px] max-[451px]:text-[13px] ${isDisabled ? "opacity-30" : ""}`}
       disabled={isDisabled}
       onClick={onRestart}

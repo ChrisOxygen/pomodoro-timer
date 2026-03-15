@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Timer, useTimer } from "./features/timer";
 import { Switch } from "./features/switch";
 import { Settings } from "./features/settings";
+import { InstallBanner } from "./features/pwa";
 
 const MODE_BG: Record<string, string> = {
   Pomodoro: "#1E213F",
@@ -25,6 +26,7 @@ function App() {
       <Switch />
       <Timer />
       <Settings />
+      <InstallBanner />
     </motion.div>
   );
 }

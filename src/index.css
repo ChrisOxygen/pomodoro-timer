@@ -23,6 +23,28 @@
 :root {
   --main-color: #f87070;
   --font-main: "Kumbh Sans", sans-serif;
+  /* iOS safe-area insets (0px on desktop / non-cover viewports) */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+}
+
+/* ── Safe-area aware app container ── */
+.safe-insets {
+  /* vertical: safe area or original mobile padding, whichever is bigger */
+  padding-top: var(--sat);
+  padding-bottom: var(--sab);
+  /* horizontal: safe area extends the base 30px gutter */
+  padding-left: max(1.875rem, calc(var(--sal) + 1.5rem));
+  padding-right: max(1.875rem, calc(var(--sar) + 1.5rem));
+}
+@media (max-width: 650px) {
+  .safe-insets {
+    padding-top: max(0.9375rem, var(--sat));
+    padding-left: max(1.5rem, calc(var(--sal) + 1rem));
+    padding-right: max(1.5rem, calc(var(--sar) + 1rem));
+  }
 }
 
 /* ── Font theme classes (set on <html> via FontContext) ── */
@@ -93,4 +115,15 @@ input[type="number"] {
 /* ── Modal backdrop ── */
 .modal-dialog::backdrop {
   background: rgba(10, 12, 28, 0.5);
+}
+
+/* ── Reduced motion: stop all CSS transitions/animations ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
