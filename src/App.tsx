@@ -16,6 +16,7 @@ function App() {
 
   return (
     <motion.div
+      data-mode={activeTimer}
       className="flex flex-col items-center w-screen h-screen justify-center safe-insets"
       initial={{ backgroundColor: "#1E213F" }}
       animate={{ backgroundColor: MODE_BG[activeTimer] ?? "#1E213F" }}

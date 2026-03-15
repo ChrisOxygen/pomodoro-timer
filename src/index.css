@@ -28,6 +28,26 @@
   --sab: env(safe-area-inset-bottom, 0px);
   --sal: env(safe-area-inset-left, 0px);
   --sar: env(safe-area-inset-right, 0px);
+  /* Timer circle neumorphic shadow — defaults to Pomodoro background */
+  --shadow-dark: #121530;
+  --shadow-light: #272c5a;
+}
+
+/* Shadow tracks the mode background colour */
+[data-mode="Short Break"] {
+  --shadow-dark: #0d2029;
+  --shadow-light: #244050;
+}
+[data-mode="Long Break"] {
+  --shadow-dark: #0e1633;
+  --shadow-light: #263558;
+}
+
+/* Timer circle neumorphic shadow using the mode-aware variables */
+.timer-circle {
+  box-shadow:
+    50px 50px 100px 0px var(--shadow-dark),
+    -50px -50px 100px 0px var(--shadow-light);
 }
 
 /* ── Safe-area aware app container ── */
