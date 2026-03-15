@@ -58,6 +58,7 @@ html,
 body {
   height: 100%;
   overflow-x: hidden;
+  background-color: #1e213f;
 }
 
 /* ── Form elements inherit font ── */
