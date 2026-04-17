@@ -20,6 +20,9 @@
     "react-responsive": "^9.0.2",
     "tailwindcss": "^4.2.1"
   },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "4.2.1"
+  },
   "devDependencies": {
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
