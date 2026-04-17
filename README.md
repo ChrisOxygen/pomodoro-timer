@@ -1,8 +1,8 @@
 # Pomodoro Timer
 
-A focused, accessible Pomodoro timer built as a progressive web app. Helps you work in structured 25-minute sessions with short and long breaks, tracking your cycle progress with a visual session counter.
+A focused, accessible Pomodoro timer built as a progressive web app. Work in structured sessions with short and long breaks, and track your full 4-session cycle with a visual session counter.
 
-**[Live Demo →](https://pomodoro-timer-usechris.vercel.app)**
+**[Live Demo →](https://pomodoro24.netlify.app)**
 
 ---
 
@@ -33,7 +33,7 @@ A focused, accessible Pomodoro timer built as a progressive web app. Helps you w
 ### Starting a session
 
 1. Open the app (or install it — see [Installing as a PWA](#installing-as-a-pwa))
-2. The timer defaults to **Pomodoro** mode (25 min)
+2. The timer defaults to **Pomodoro** mode
 3. Click **START** to begin the countdown
 4. Click **PAUSE** to pause mid-session; click **START** again to resume
 
@@ -43,8 +43,8 @@ Click any tab in the pill switcher at the top:
 
 | Mode | Default duration | Purpose |
 |---|---|---|
-| **Pomodoro** | 25 min | Focused work session |
-| **Short Break** | 5 min | Quick rest between sessions |
+| **Pomodoro** | 23 min | Focused work session |
+| **Short Break** | 4 min | Quick rest between sessions |
 | **Long Break** | 15 min | Longer rest after 4 Pomodoros |
 
 Switching modes resets the current timer and stops any alarm.
@@ -70,7 +70,7 @@ Click the small circular **↺** button below the START/PAUSE text to reset the 
 
 Click the **⚙** settings icon at the bottom to open the settings panel:
 
-- **Time (minutes)** — set custom durations for each of the three modes (Pomodoro: 5–60 min, Short Break: 2–60 min, Long Break: 5–60 min)
+- **Time (minutes)** — set custom durations for each mode (Pomodoro: 5–60 min, Short Break: 2–60 min, Long Break: 5–60 min)
 - **Font** — choose from Kumbh Sans, Roboto Slab, or Space Mono
 - **Color** — choose from red, cyan, or purple accent colour
 
