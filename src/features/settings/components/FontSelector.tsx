@@ -44,7 +44,7 @@ function FontBtn({ selectedFont, fontTitle, onActiveFont }: FontBtnProps) {
 
   return (
     <button
-      className={`flex items-center justify-center w-10 h-10 shrink-0 rounded-full text-[15px] font-bold hover:outline hover:outline-1 hover:outline-off-white hover:outline-offset-4 ${fontClass} ${
+      className={`flex items-center justify-center w-10 h-10 shrink-0 rounded-full text-[15px] font-bold hover:outline hover:outline-off-white hover:outline-offset-4 ${fontClass} ${
         isActiveFont ? "bg-dark-2 text-white" : "bg-off-white text-dark-1"
       }`}
       id={fontTitle}
